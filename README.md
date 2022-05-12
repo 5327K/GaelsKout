@@ -13,7 +13,7 @@ This uses `tailwind-rn`, so in development, make two terminals, one running `npm
 
 Commands to run (for my reference; run these in seperate terminals)
 
-```ps
+```bash
 # NOTE: the below command will be different based on which emulator is installed. Run
 # emulator -list-avds to find all AVDs installed.
 emulator -avd Samsung_Galaxy_Note_8_API_32 # runs the android emulator

@@ -1,17 +1,14 @@
-import { registerRootComponent } from "expo";
-import {
-  Text,
-  View,
-  ScrollView,
-  Button,
-  ActivityIndicator,
-} from "react-native";
+import { View, ScrollView } from "react-native";
 
 import PagePicker from "../components/PagePicker";
+import Loading from "../components/Loading";
 
-import { Api, Event } from "../../api/Api";
+import { api } from "../config";
+
+import { Event } from "../api/Api";
 import { useTailwind } from "tailwind-rn";
 import { useEffect, useRef, useState } from "react";
+
 import EventComponent from "../components/Event";
 
 const EventsScreen = () => {
@@ -22,33 +19,21 @@ const EventsScreen = () => {
   const [page, setPage] = useState(1);
 
   const getData = async () => {
-    setLoading(true);
     const data = await api.events.eventGetEvents({ page: page });
     totalPages.current = data.data.meta?.last_page;
     setEventsList(data.data.data as Event[]);
-    setLoading(false);
   };
 
-  const api = new Api({
-    baseApiParams: {
-      headers: {
-        Authorization: "Bearer " + process.env.ROBOTS_API_KEY,
-      },
-    },
-  });
-
   useEffect(() => {
+    setLoading(true);
     getData();
+    setLoading(false);
   }, [page]);
 
   return (
     <View style={tailwind("mt-2")}>
       {loading ? (
-        <View
-          style={tailwind("h-full w-full flex justify-center items-center")}
-        >
-          <ActivityIndicator size="large" color="#2243ff" />
-        </View>
+        <Loading />
       ) : (
         <ScrollView>
           {eventsList.map((event) => (

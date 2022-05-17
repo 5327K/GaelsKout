@@ -4,31 +4,30 @@ import { TailwindProvider } from "tailwind-rn";
 import utilities from "../tailwind.json";
 
 import { NavigationContainer } from "@react-navigation/native";
-import MaterialIcons from "@expo/vector-icons/MaterialIcons";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import EventsScreen from "./screens/Events";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import EventScreen from "./screens/Event";
+import MainScreen from "./screens/Main";
 
-const Tab = createBottomTabNavigator();
+import { RootStackParamList, api } from "./config";
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const App = () => {
   return (
     <TailwindProvider utilities={utilities}>
       <NavigationContainer>
-        <Tab.Navigator>
-          <Tab.Screen
-            name="Events"
-            component={EventsScreen}
-            options={{
-              tabBarIcon: ({ color, size }) => (
-                <MaterialIcons
-                  name="calendar-today"
-                  size={size}
-                  color={color}
-                />
-              ),
-            }}
+        <Stack.Navigator initialRouteName="Main">
+          <Stack.Screen
+            name="Main"
+            component={MainScreen}
+            options={{ headerShown: false }}
           />
-        </Tab.Navigator>
+          <Stack.Screen
+            name="Event"
+            component={EventScreen}
+            options={({ route }) => ({ title: route.params.name })}
+          />
+        </Stack.Navigator>
       </NavigationContainer>
     </TailwindProvider>
   );

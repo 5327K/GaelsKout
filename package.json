@@ -16,6 +16,7 @@
     "@react-navigation/native": "^6.0.10",
     "@react-navigation/native-stack": "^6.6.2",
     "axios": "^0.27.2",
+    "cheerio": "^1.0.0-rc.10",
     "expo": "~44.0.0",
     "expo-status-bar": "~1.2.0",
     "react": "17.0.1",
@@ -29,6 +30,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "@types/jsdom": "^16.2.14",
     "@types/react": "~17.0.21",
     "@types/react-native": "~0.64.12",
     "babel-plugin-inline-dotenv": "^1.7.0",

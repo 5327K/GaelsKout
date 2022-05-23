@@ -5,7 +5,7 @@ import { Event } from "../api/Api";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import formatDate from "../util/formatDate";
 import { useNavigation } from "@react-navigation/native";
-import { MainScreenNavigationProp } from "../screens/Main";
+import { MainScreenNavigationProp } from "../screens/MainScreen";
 
 const EventInfo = ({
   icon,
@@ -44,9 +44,8 @@ const EventComponent = ({ event, ...props }: EventProps) => {
         ...tailwind("bg-gray-200 mb-2 rounded mx-2 p-2 flex flex-row"),
       }}
       onPress={() =>
-        navigation.navigate("Event", {
+        navigation.navigate("View Event", {
           id: event.id,
-          name: event.name,
         })
       }
     >

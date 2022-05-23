@@ -5,10 +5,10 @@ import utilities from "../tailwind.json";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import EventScreen from "./screens/Event";
-import MainScreen from "./screens/Main";
+import EventScreen from "./screens/EventScreen";
+import MainScreen from "./screens/MainScreen";
 
-import { RootStackParamList, api } from "./config";
+import { RootStackParamList } from "./config";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -23,9 +23,8 @@ const App = () => {
             options={{ headerShown: false }}
           />
           <Stack.Screen
-            name="Event"
+            name="View Event"
             component={EventScreen}
-            options={({ route }) => ({ title: route.params.name })}
           />
         </Stack.Navigator>
       </NavigationContainer>

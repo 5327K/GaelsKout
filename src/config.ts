@@ -4,7 +4,7 @@ export const ROBOTS_API_KEY = process.env.ROBOTS_API_KEY;
 
 export type RootStackParamList = {
   Main: undefined;
-  Event: { id: number; name: string };
+  "View Event": { id: number; };
 };
 
 export const api = new Api({

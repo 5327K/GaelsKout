@@ -1,4 +1,4 @@
-import EventsScreen from "./Events";
+import EventsScreen from "./EventsScreen";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";

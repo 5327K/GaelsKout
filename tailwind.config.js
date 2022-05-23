@@ -2,9 +2,10 @@ module.exports = {
   content: ["src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
-      minWidth: {
-        "6": "1.5rem", /* 24px */
-      }
+      minWidth: theme => ({
+        "6": theme("spacing[6]"),
+        "24": theme("spacing[24]")
+      })
     },
   },
   plugins: [],
